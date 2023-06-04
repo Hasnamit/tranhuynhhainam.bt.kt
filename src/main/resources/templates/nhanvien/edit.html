@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="layout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee</title>
+</head>
+<body>
+<th:block th:replace="layout"></th:block>
+<div class="container body-content" layout:fragment="content">
+    <form class="form" method="post" th:action="@{/nhanvien/update}" th:object="${nhanvien}" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input class="form-control" id="id" placeholder="Please enter your Id" th:field="*{id}" type="text">
+            <div class="alert alert-warning" th:errors="*{id}" th:if="${#fields.hasErrors('id')}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="tenNv">Name</label>
+            <input class="form-control" id="tenNv" placeholder="Please enter your Name" th:field="*{tenNv}" type="text">
+            <div class="alert alert-warning" th:errors="*{tenNv}" th:if="${#fields.hasErrors('tenNv')}"></div>
+        </div>
+        <div class="form-group">
+            <label for="phai">Phai</label>
+            <input class="form-control" id="phai" placeholder="phai" th:field="*{phai}" type="text">
+            <div class="alert alert-warning" th:errors="*{phai}" th:if="${#fields.hasErrors('phai')}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="noisinh">Place</label>
+            <input class="form-control" id="noisinh" placeholder="noisinh" th:field="*{noisinh}" type="text">
+            <div class="alert alert-warning" th:errors="*{noisinh}" th:if="${#fields.hasErrors('noisinh')}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="phongban">Place</label>
+            <input class="form-control" id="phongban" placeholder="phongban" th:field="*{phongban}" type="text">
+            <div class="alert alert-warning" th:errors="*{phongban}" th:if="${#fields.hasErrors('phongban')}"></div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="luong">Salary:</label>
+            <input class="form-control" id="luong" placeholder="luong" th:field="*{luong}" type="number">
+            <div class="alert alert-warning" th:errors="*{luong}" th:if="${#fields.hasErrors('luong')}"></div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Edit Employee">
+    </form>
+    <br>
+    <a th:href="@{/nhanvien}">Back to List</a>
+</div>
+</body>
+</html>
+
+
+<!--        <div class="form-group">-->
+<!--            <label class="form-label" for="phongban">Phong Ban:</label>-->
+<!--            <select class="form-control" id="phongban" name="maphong">-->
+<!--                <option value="">&#45;&#45; Select Phong ban &#45;&#45;</option>-->
+<!--                <option th:each="phongban : ${phongban}" th:value="${phongban.maphong}"-->
+
+<!--                        th:text="${phongban.tenphong}"></option>-->
+<!--            </select>-->
+<!--            <span class="text-danger" th:if="${#fields.hasErrors('phongban')}" th:errors="*{phongban}"></span>-->
+<!--        </div>-->
